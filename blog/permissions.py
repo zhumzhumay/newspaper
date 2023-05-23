@@ -10,7 +10,13 @@ class IsReader(BasePermission):
         return request.user.role == User.READER
 
 
+class IsEditor(BasePermission):
+
+    def has_permission(self, request, view):
+        return request.user.role == User.EDITOR
+
 
 class IsSuperAdmin(BasePermission):
+
     def has_permission(self, request, view):
         return request.user.role == User.SUPERADMIN
