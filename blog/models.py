@@ -41,4 +41,30 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name = 'Пользователь'
         verbose_name_plural = 'Пользователи'
 
-# Create your models here.
+
+class Post(models.Model):
+    URGENT, BESTOFTHEDAY, REGULAR= range(1, 4)
+    NEWS_TYPES = (
+        (URGENT, 'СРОЧНАЯ НОВОСТЬ'),
+        (BESTOFTHEDAY, 'НОВОСТЬ ДНЯ'),
+        (REGULAR, 'ОБЫЧНАЯ')
+    )
+
+    user = models.ForeignKey(User, on_delete=models.SET_DEFAULT, verbose_name='Имя юзера', related_name='posts', default=0)
+    title = models.CharField(max_length=255, default='', null=True, blank=True, verbose_name='Заголовок')
+    text = models.TextField(verbose_name="Текст")
+    text_author = models.CharField('Автор статьи', max_length=255, default="")
+    date_post = models.DateTimeField(default = timezone.now, verbose_name="дата")
+
+    type = models.IntegerField('Тип новости', default=REGULAR, choices=NEWS_TYPES)
+    
+
+    class Meta:
+        verbose_name='Новость'
+        verbose_name_plural='Новости'
+        
+    def __str__(self):
+        return self.title
+    
+    
+    
