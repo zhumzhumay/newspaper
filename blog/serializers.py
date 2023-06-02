@@ -4,7 +4,8 @@ from rest_framework_simplejwt.exceptions import AuthenticationFailed
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer, TokenRefreshSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
 
-from .models import User
+
+from .models import User, Post
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -53,3 +54,19 @@ class TokenRefreshSerializer(TokenRefreshSerializer):
         data['username'] = user.username
 
         return data
+
+class GetUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=User
+        fields='__all__'
+
+class PostSerializer(serializers.ModelSerializer):
+    user_info=serializers.SerializerMethodField()
+    
+    class Meta:
+        model=Post
+        fields=('image', 'title', 'text', 'text_author', 'date_post', 'type', 'user_info')
+
+    def get_user_info(self,obj):
+        serializer=GetUserSerializer(obj.user)
+        return serializer.data

@@ -6,9 +6,9 @@ from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 from rest_framework_simplejwt.views import TokenObtainSlidingView, TokenRefreshSlidingView
 
-from blog.models import User
+from blog.models import User, Post
 from blog.permissions import IsEditor, IsSuperAdmin, IsReader
-from blog.serializers import UserSerializer, TokenObtainPairSerializer, TokenRefreshSerializer
+from blog.serializers import UserSerializer, TokenObtainPairSerializer, TokenRefreshSerializer, PostSerializer
 
 
 class UserViewSet(ModelViewSet):
@@ -46,3 +46,11 @@ class TokenObtainPairView(TokenObtainSlidingView):
 class TokenRefreshView(TokenRefreshSlidingView):
     permission_classes = [AllowAny]
     serializer_class = TokenRefreshSerializer
+
+class PostViewSet(ModelViewSet):
+    serializer_class = PostSerializer
+    queryset = Post.objects.all()
+
+def index(request):
+    # ls=Post.objects.all()
+    return render(request,'index.html')

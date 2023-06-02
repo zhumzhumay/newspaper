@@ -51,6 +51,7 @@ class Post(models.Model):
     )
 
     user = models.ForeignKey(User, on_delete=models.SET_DEFAULT, verbose_name='Имя юзера', related_name='posts', default=0)
+    image = models.ImageField('Изображение', default='service-6.jpg')
     title = models.CharField(max_length=255, default='', null=True, blank=True, verbose_name='Заголовок')
     text = models.TextField(verbose_name="Текст")
     text_author = models.CharField('Автор статьи', max_length=255, default="")
@@ -65,6 +66,12 @@ class Post(models.Model):
         
     def __str__(self):
         return self.title
+
+    def get_absolute_image_url(self):
+        if self.image:
+            return self.image.url
+        else:
+            return ''
     
     
     
