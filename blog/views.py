@@ -52,5 +52,5 @@ class PostViewSet(ModelViewSet):
     queryset = Post.objects.all()
 
 def index(request):
-    # ls=Post.objects.all()
-    return render(request,'index.html')
+    ls = Post.NEWS_TYPES
+    return render(request,'index.html', {'types': ls})

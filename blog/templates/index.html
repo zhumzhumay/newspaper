@@ -60,6 +60,7 @@
                     <i class="bi bi-phone-vibrate fs-1 text-primary me-3"></i>
                     <div class="text-start">
                         <h6 class="text-uppercase fw-bold">Телефон для связи</h6>
+
                         <span>+012 345 6789</span>
                     </div>
                 </div>
@@ -121,7 +122,7 @@
             <div class="aiman"></div>
 
             <script>
-                
+
                 $(document).ready(function(){
                     $.get("http://127.0.0.1:8000/api/post/", function(data, status){
                         for(let i=0;i<(data.count);i++){
@@ -134,7 +135,6 @@
         <div class="p-4">
             <div class="d-flex justify-content-between mb-4">
                 <div class="d-flex align-items-center">
-                    // <img class="rounded-circle me-2" src="" width="35" height="35" alt="">
                 
                     <span>${data.results[i].text_author}</span>
                 </div>
@@ -142,7 +142,22 @@
                     <span class="ms-3"><i class="far fa-calendar-alt text-primary me-2"></i>${data.results[i].date_post}</span>
                 </div>
             </div>
-            <h4 class="text-uppercase mb-3">${data.results[i].title}</h4>
+            <!-- {% if data.results.i.type == 1 %}
+            <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title={{ types.0.1 }}>
+ <h4 class="text-uppercase mb-3">${data.results[i].title} </h4></span>
+            {% elif data.results.i.type == 2 %}
+            <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title={{ types.1.1 }}>
+ <h4 class="text-uppercase mb-3">${data.results[i].title} </h4></span>
+            {% else %}
+            <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title={{ types.2.1 }}>
+ <h4 class="text-uppercase mb-3">${data.results[i].title} </h4></span>
+            {% endif %}
+           <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="{{ types.1}}">
+ <h4 class="text-uppercase mb-3">${data.results[i].title} </h4></span>
+
+            <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="{{ types }}">
+ <h4 class="text-uppercase mb-3">${data.results[i].title} </h4></span>-->
+
             <a class="text-uppercase fw-bold" href="">Read More <i class="bi bi-arrow-right"></i></a>
         </div>
     </div>
@@ -275,3 +290,6 @@
 </body>
 
 </html>
+
+
+<!--                 <img class="rounded-circle me-2" src="" width="35" height="35" alt="">-->
