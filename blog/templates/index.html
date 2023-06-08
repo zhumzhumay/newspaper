@@ -142,21 +142,10 @@
                     <span class="ms-3"><i class="far fa-calendar-alt text-primary me-2"></i>${data.results[i].date_post}</span>
                 </div>
             </div>
-            <!-- {% if data.results.i.type == 1 %}
-            <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title={{ types.0.1 }}>
- <h4 class="text-uppercase mb-3">${data.results[i].title} </h4></span>
-            {% elif data.results.i.type == 2 %}
-            <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title={{ types.1.1 }}>
- <h4 class="text-uppercase mb-3">${data.results[i].title} </h4></span>
-            {% else %}
-            <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title={{ types.2.1 }}>
- <h4 class="text-uppercase mb-3">${data.results[i].title} </h4></span>
-            {% endif %}
-           <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="{{ types.1}}">
- <h4 class="text-uppercase mb-3">${data.results[i].title} </h4></span>
 
-            <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="{{ types }}">
- <h4 class="text-uppercase mb-3">${data.results[i].title} </h4></span>-->
+
+            <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="${data.results[i].type_name} ">
+ <h4 class="text-uppercase mb-3">${data.results[i].title} </h4></span>
 
             <a class="text-uppercase fw-bold" href="">Read More <i class="bi bi-arrow-right"></i></a>
         </div>

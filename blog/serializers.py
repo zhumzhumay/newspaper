@@ -61,12 +61,18 @@ class GetUserSerializer(serializers.ModelSerializer):
         fields='__all__'
 
 class PostSerializer(serializers.ModelSerializer):
-    user_info=serializers.SerializerMethodField()
+    user_info = serializers.SerializerMethodField()
+    type_name = serializers.SerializerMethodField()
     
     class Meta:
-        model=Post
-        fields=('image', 'title', 'text', 'text_author', 'date_post', 'type', 'user_info')
+        model = Post
+        fields = ('image', 'title', 'text', 'text_author', 'date_post', 'user_info', 'type_name')
 
     def get_user_info(self,obj):
-        serializer=GetUserSerializer(obj.user)
+        serializer = GetUserSerializer(obj.user)
         return serializer.data
+
+    def get_type_name(self, obj):
+        return Post.NEWS_TYPES[int(obj.type)-1][1]
+
+
