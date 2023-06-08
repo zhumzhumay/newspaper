@@ -66,7 +66,7 @@ class PostSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Post
-        fields = ('image', 'title', 'text', 'text_author', 'date_post', 'user_info', 'type_name')
+        fields = ('id', 'image', 'title', 'text', 'text_author', 'date_post', 'type', 'user_info', 'type_name')
 
     def get_user_info(self,obj):
         serializer = GetUserSerializer(obj.user)

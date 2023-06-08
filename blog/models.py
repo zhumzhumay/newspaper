@@ -55,7 +55,7 @@ class Post(models.Model):
     title = models.CharField(max_length=255, default='', null=True, blank=True, verbose_name='Заголовок')
     text = models.TextField(verbose_name="Текст")
     text_author = models.CharField('Автор статьи', max_length=255, default="")
-    date_post = models.DateTimeField(default = timezone.now, verbose_name="дата")
+    date_post = models.DateTimeField(default=timezone.now, verbose_name="дата")
 
     type = models.IntegerField('Тип новости', default=REGULAR, choices=NEWS_TYPES)
     
