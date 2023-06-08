@@ -54,3 +54,7 @@ class PostViewSet(ModelViewSet):
 def index(request):
     # ls = Post.NEWS_TYPES
     return render(request, 'index.html')
+
+def signin(request):
+    # ls = Post.NEWS_TYPES
+    return render(request, 'signin.html')
