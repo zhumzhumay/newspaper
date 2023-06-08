@@ -50,7 +50,7 @@ class Post(models.Model):
         (REGULAR, 'ОБЫЧНАЯ')
     )
 
-    user = models.ForeignKey(User, on_delete=models.SET_DEFAULT, verbose_name='Имя юзера', related_name='posts', default=0)
+    user = models.ForeignKey(User, on_delete=models.SET_DEFAULT, verbose_name='Пользователь', related_name='posts', default=0)
     image = models.ImageField('Изображение', default='service-6.jpg')
     title = models.CharField(max_length=255, default='', null=True, blank=True, verbose_name='Заголовок')
     text = models.TextField(verbose_name="Текст")
@@ -74,4 +74,9 @@ class Post(models.Model):
             return ''
     
     
-    
+class Sessions(models.Model):
+        user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Пользователь', related_name='sessions', default=0)
+        tokenaccess = models.TextField(verbose_name="токен доступа")
+        tokenrefresh = models.TextField('Токен рефреш')
+        date = models.DateTimeField(default=timezone.now, verbose_name="дата")
+

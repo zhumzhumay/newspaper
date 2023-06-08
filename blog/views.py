@@ -1,12 +1,14 @@
-from django.shortcuts import render
-from rest_framework import status
+from django.shortcuts import render, redirect
+from django.utils import timezone
+from rest_framework import status, mixins
 from rest_framework.generics import ListAPIView
 from rest_framework.permissions import AllowAny, IsAdminUser
 from rest_framework.response import Response
-from rest_framework.viewsets import ModelViewSet
+from rest_framework.viewsets import ModelViewSet, GenericViewSet
 from rest_framework_simplejwt.views import TokenObtainSlidingView, TokenRefreshSlidingView
 
-from blog.models import User, Post
+from blog.forms import PostForm#, LoginForm
+from blog.models import User, Post, Sessions
 from blog.permissions import IsEditor, IsSuperAdmin, IsReader
 from blog.serializers import UserSerializer, TokenObtainPairSerializer, TokenRefreshSerializer, PostSerializer
 
@@ -47,9 +49,16 @@ class TokenRefreshView(TokenRefreshSlidingView):
     permission_classes = [AllowAny]
     serializer_class = TokenRefreshSerializer
 
+# class PostViewSet (mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.DestroyModelMixin, mixins.ListModelMixin,
+#                    GenericViewSet):
 class PostViewSet(ModelViewSet):
     serializer_class = PostSerializer
     queryset = Post.objects.all()
+
+# class PostCreateView(mixins.CreateModelMixin, GenericViewSet):
+#     permission_classes = [IsEditor | IsSuperAdmin]
+#     def get(self, request, *args, **kwargs):
+#         return Response(data={'success': 'You posted it'}, status=status.HTTP_200_OK)
 
 def index(request):
     # ls = Post.NEWS_TYPES
@@ -58,3 +67,32 @@ def index(request):
 def signin(request):
     # ls = Post.NEWS_TYPES
     return render(request, 'signin.html')
+
+def post_form(request):
+
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.user = request.user
+            post.post_date = timezone.now()
+            post.save()
+            return redirect('index')
+    else:
+        form = PostForm()
+    return render(request, 'post_add.html', {'form': form})
+
+# def login_form(request):
+#     if request.method == "POST":
+#         form = LoginForm(request.POST)
+#         if form.is_valid():
+#             post = form.save(commit=False)
+#             if Sessions.objects.get(id=User.objects.get(username=post.username).id):
+#                 Sessions.objects.get(id=User.objects.get(username=post.username).id).delete()
+#             post.date = timezone.now()
+#             # post.token =
+#             # post.save()
+#             return redirect('index')
+#     else:
+#         form = LoginForm()
+#     return render(request, 'signin.html', {'form': form})
