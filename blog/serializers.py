@@ -63,10 +63,11 @@ class GetUserSerializer(serializers.ModelSerializer):
 class PostSerializer(serializers.ModelSerializer):
     user_info = serializers.SerializerMethodField()
     type_name = serializers.SerializerMethodField()
+    date_time = serializers.SerializerMethodField()
     
     class Meta:
         model = Post
-        fields = ('id', 'image', 'title', 'text', 'text_author', 'date_post', 'type', 'user_info', 'type_name')
+        fields = ('id', 'image', 'title', 'text', 'text_author', 'date_time', 'type', 'user_info', 'type_name')
 
     def get_user_info(self,obj):
         serializer = GetUserSerializer(obj.user)
@@ -74,5 +75,8 @@ class PostSerializer(serializers.ModelSerializer):
 
     def get_type_name(self, obj):
         return Post.NEWS_TYPES[int(obj.type)-1][1]
+
+    def get_date_time(self,obj):
+        return obj.date_post.strftime("%d/%m/%Y, %H:%M")
 
 

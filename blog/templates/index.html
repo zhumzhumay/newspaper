@@ -83,29 +83,13 @@
     <!-- Navbar Start -->
     <div class="container-fluid sticky-top bg-dark bg-light-radial shadow-sm px-5 pe-lg-0">
         <nav class="navbar navbar-expand-lg bg-dark bg-light-radial navbar-dark py-3 py-lg-0">
-            <a href="index.html" class="navbar-brand">
+            <a href="{% url 'index' %}" class="navbar-brand">
                 <h1 class="m-0 display-4 text-uppercase text-white">НОВОСТИ</h1>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav ms-auto py-0">
-                    <a href="index.html" class="nav-item nav-link">Главная</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Страницы</a>
-                        <!-- <div class="dropdown-menu m-0">
-                            <a href="project.html" class="dropdown-item">Our Project</a>
-                            <a href="team.html" class="dropdown-item">The Team</a>
-                            <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                            <a href="blog.html" class="dropdown-item active">Blog Grid</a>
-                            <a href="detail.html" class="dropdown-item">Blog Detail</a>
-                        </div> -->
-                    </div>
-                    <!-- <a href="contact.html" class="nav-item nav-link">Contact</a>
-                    <a href="" class="nav-item nav-link bg-primary text-white px-5 ms-3 d-none d-lg-block">Get A Quote <i class="bi bi-arrow-right"></i></a> -->
-                </div>
-            </div>
+<!--            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">-->
+<!--                <span class="navbar-toggler-icon"></span>-->
+<!--            </button>-->
+
         </nav>
     </div>
     <!-- Navbar End -->
@@ -113,11 +97,8 @@
 
     <!-- Page Header Start -->
     <div class="container-fluid page-header">
-        <!-- <h1 class="display-3 text-uppercase text-white mb-3">Blog Grid</h1> -->
         <div class="d-inline-flex text-white">
             <h6 class="text-uppercase m-0"><a href="">Свежие новости каждый день</a></h6>
-            <!-- <h6 class="text-white m-0 px-3">/</h6> -->
-            <!-- <h6 class="text-uppercase text-white m-0">Blog Grid</h6> -->
         </div>
     </div>
     <!-- Page Header Start -->
@@ -178,7 +159,7 @@
                             <span>${data.results[i].text_author}</span>
                             </div>
                             <div class="d-flex align-items-center">
-                            <span class="ms-3"><i class="far fa-calendar-alt text-primary me-2"></i>${data.results[i].date_post}</span>
+                            <span class="ms-3"><i class="far fa-calendar-alt text-primary me-2"></i>${data.results[i].date_time}</span>
                             </div>
                             </div>
 
@@ -237,61 +218,26 @@
 
 
 
-<!--            <div class="col-12">-->
-<!--                <nav aria-label="Page navigation">-->
-<!--                  <ul class="pagination pagination-lg justify-content-center m-0">-->
-<!--                    <li class="page-item disabled">-->
-<!--                      <a class="page-link rounded-0" href="#" aria-label="Previous">-->
-<!--                        <span aria-hidden="true">&laquo;</span>-->
-<!--                        <span class="sr-only">Previous</span>-->
-<!--                      </a>-->
-<!--                    </li>-->
-<!--                    <li class="page-item active"><a class="page-link" href="#">1</a></li>-->
-<!--                    <li class="page-item"><a class="page-link" href="#">2</a></li>-->
-<!--                    <li class="page-item"><a class="page-link" href="#">3</a></li>-->
-<!--                    <li class="page-item">-->
-<!--                      <a class="page-link rounded-0" href="#" aria-label="Next">-->
-<!--                        <span aria-hidden="true">&raquo;</span>-->
-<!--                        <span class="sr-only">Next</span>-->
-<!--                      </a>-->
-<!--                    </li>-->
-<!--                  </ul>-->
-<!--                </nav>-->
-<!--            </div>-->
+
 
     <!-- Blog End -->
     
 
     <!-- Footer Start -->
-    <div class="footer container-fluid position-relative bg-dark bg-light-radial text-white-50 py-6 px-5">
-        <div class="row g-5">
-            <div class="col-lg-6 pe-lg-5">
-                <a href="index.html" class="navbar-brand">
+    <div class="footer container-fluid position-relative bg-dark text-white-50 py-6 px-5">
+<!--        <div class="row g-5">-->
+<!--            <div class="col-lg-6 pe-lg-5">-->
+                <a href="{% url 'index' %}" class="navbar-brand">
                     <h1 class="m-0 display-4 text-uppercase text-white">НОВОСТИ</h1>
                 </a>
                 
                 <p><i class="fa fa-map-marker-alt me-2"></i>123 Street, New York, USA</p>
                 <p><i class="fa fa-phone-alt me-2"></i>+012 345 67890</p>
                 <p><i class="fa fa-envelope me-2"></i>info@example.com</p>
-                <div class="d-flex justify-content-start mt-4">
-                    <a class="btn btn-lg btn-primary btn-lg-square rounded-0 me-2" href="#"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-lg btn-primary btn-lg-square rounded-0 me-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-lg btn-primary btn-lg-square rounded-0 me-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-lg btn-primary btn-lg-square rounded-0" href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-6 ps-lg-5">
-                <div class="row g-5">
-                    <div class="col-sm-6">
-                        <h4 class="text-white text-uppercase mb-4">Quick Links</h4>
-                        <div class="d-flex flex-column justify-content-start">
-                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Главная</a>
-                        </div>
-                    </div>
 
-                </div>
-            </div>
-        </div>
+<!--            </div>-->
+
+<!--        </div>-->
     </div>
 
 
