@@ -86,16 +86,17 @@
             <a href="{% url 'index' %}" class="navbar-brand">
                 <h1 class="m-0 display-4 text-uppercase text-white">НОВОСТИ</h1>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
-                    <a href="{% url 'signin' %}" class="nav-item nav-link">Авторизация</a>
-
-                    <!-- <a href="contact.html" class="nav-item nav-link">Contact</a>
-                    <a href="" class="nav-item nav-link bg-primary text-white px-5 ms-3 d-none d-lg-block">Get A Quote <i class="bi bi-arrow-right"></i></a> -->
+                    <a href="{% url 'signin' %}" class="nav-item nav-link">Авторизация (только для редакторов)</a>
                 </div>
+                {% if user.is_authenticated %}
+
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="{% url 'post_add' %}" class="nav-item nav-link">Добавить пост</a>
+                </div>
+                {% endif %}
             </div>
 
         </nav>

@@ -91,7 +91,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
-                    <a href="" class="nav-item nav-link">Авторизация</a>
+                    <a href="" class="nav-item nav-link">Авторизация (только для редакторов)</a>
                     
                     <!-- <a href="contact.html" class="nav-item nav-link">Contact</a>
                     <a href="" class="nav-item nav-link bg-primary text-white px-5 ms-3 d-none d-lg-block">Get A Quote <i class="bi bi-arrow-right"></i></a> -->
@@ -103,100 +103,18 @@
     <!-- Navbar End -->
 
 
-<!--     <form method="POST"> {% csrf_token %}-->
-<!--        {{ form.as_p }}-->
-<!--        <button type="submit" class="save btn btn-default">Save</button>-->
+    <form method="POST"> {% csrf_token %}
+       {{ form.as_p }}
+       <button type="submit" class="save btn btn-default">ВХОД</button>
 
-<!--    </form>-->
-    <div>
-
-<form onsubmit="event.preventDefault();">
-  <div class="row mb-3">
-    <label for="login" class="col-sm-2 col-form-label">Логин</label>
-    <div class="col-sm-7">
-      <input type="login" class="form-control" id="login">
-    </div>
-  </div>
-  <div class="row mb-3">
-    <label for="password" class="col-sm-2 col-form-label">Пароль</label>
-    <div class="col-sm-7">
-      <input type="password" class="form-control" id="password">
-    </div>
-  </div>
-  <fieldset class="row mb-3">
-    <legend class="col-form-label col-sm-2 pt-0">Роль:</legend>
-    <div class="col-sm-10">
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="READER" checked>
-        <label class="form-check-label" for="gridRadios1">
-          Читатель
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="EDITOR">
-        <label class="form-check-label" for="gridRadios2">
-          Редактор
-        </label>
-      </div>
-    </div>
-  </fieldset>
-  <button type="button" id="submit" class="btn btn-primary">Вход</button>
-</form>
-    </div>
+     </form>
 
 
 
 
 
-            <script>
 
-                $(document).ready(function(){
-                     $('#submit').click(function(){
-                        console.log($('#login').val())
-                        console.log($('#password').val())
-                        console.log(document.querySelector('input[name="gridRadios"]:checked').value)
-                        $.post('http://127.0.0.1:8000/token/',
-                            {
-                                username:$('#login').val(),
-                                password:$('#password').val()
-                            }).done(function(msg){
-                                console.log(msg)
-                                localStorage.setItem('access_token',msg.access)
-
-                             })
-                            .fail(function(xhr, status, error) {
-                                // error handling
-                            }
-
-                     );
-                        if (document.querySelector('input[name="gridRadios"]:checked').value == "EDITOR"){
-                        $.ajax({
-
-                        url: 'http://127.0.0.1:8000/editor/get',
-                     headers:{'Authorization':`Bearer ${localStorage.getItem('access_token')}`}
-                     }).done(function(msg){
-                        console.log(msg);
-                        window.location.href = '{% url 'post_form' %}';
-
-                    });
-
-                    }
-
-                     else if (document.querySelector('input[name="gridRadios"]:checked').value == "READER"){
-                     $.ajax({
-                     url: 'http://127.0.0.1:8000/reader/get',
-                     headers:{'Authorization':`Bearer ${localStorage.getItem('access_token')}`}
-                    }).done(function(msg){
-                        console.log(msg);
-                        const access_token = localStorage.getItem('access_token')
-                        window.location.href = '{% url 'index' %}';
-                    })}
-
-
-             })
-
-                });
-            </script>
+           
 
 
 

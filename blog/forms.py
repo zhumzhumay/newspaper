@@ -6,7 +6,7 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = ('title', 'text', 'type', 'text_author', 'image',)
 
-# class LoginForm(forms.ModelForm):
-#     class Meta:
-#         model = User
-#         fields = ('username', 'password', "role")
+class LoginForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('username', 'password', "role")

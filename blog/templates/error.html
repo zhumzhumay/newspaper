@@ -14,7 +14,7 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet"> 
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
@@ -44,40 +44,7 @@
 
 <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!-- Topbar Start -->
-    <div class="container-fluid px-5 d-none d-lg-block">
-        <div class="row gx-5">
-            <div class="col-lg-4 text-center py-3">
-                <div class="d-inline-flex align-items-center">
-                    <i class="bi bi-geo-alt fs-1 text-primary me-3"></i>
-                    <div class="text-start">
-                        <h6 class="text-uppercase fw-bold">Наш офис</h6>
-                        <span>123 Street, New York, USA</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 text-center border-start border-end py-3">
-                <div class="d-inline-flex align-items-center">
-                    <i class="bi bi-envelope-open fs-1 text-primary me-3"></i>
-                    <div class="text-start">
-                        <h6 class="text-uppercase fw-bold">Почта</h6>
-                        <span>info@example.com</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 text-center py-3">
-                <div class="d-inline-flex align-items-center">
-                    <i class="bi bi-phone-vibrate fs-1 text-primary me-3"></i>
-                    <div class="text-start">
-                        <h6 class="text-uppercase fw-bold">Телефон для связи</h6>
-
-                        <span>+012 345 6789</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Topbar End -->
+  
 
 
     <!-- Navbar Start -->
@@ -91,25 +58,22 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
-                    <a href="" class="nav-item nav-link">Авторизация (только для редакторов)</a>
+                    <a href="{% url 'signin' %}" class="nav-item nav-link">Повторная авторизация</a>
 
                     <!-- <a href="contact.html" class="nav-item nav-link">Contact</a>
                     <a href="" class="nav-item nav-link bg-primary text-white px-5 ms-3 d-none d-lg-block">Get A Quote <i class="bi bi-arrow-right"></i></a> -->
                 </div>
             </div>
 
-        </nav>
-    </div>
-    <!-- Navbar End -->
-    <div>
 
-         <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
+            <div class="container-fluid page-header">
+                <div class="d-inline-flex text-white">
+                    <h6 class="text-uppercase m-0"><a href="">Пользователя не существует, <a href="{% url 'signin' %}" class="nav-item nav-link">попробуйте еще раз</a></a></h6>
+                </div>
+            </div>
 
-    </form>
-
-
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
@@ -126,3 +90,5 @@
 </body>
 
 </html>
+
+

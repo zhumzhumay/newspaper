@@ -7,10 +7,12 @@ from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet, GenericViewSet
 from rest_framework_simplejwt.views import TokenObtainSlidingView, TokenRefreshSlidingView
 
-from blog.forms import PostForm#, LoginForm
+from blog.forms import PostForm, LoginForm
 from blog.models import User, Post, Sessions
 from blog.permissions import IsEditor, IsSuperAdmin, IsReader
 from blog.serializers import UserSerializer, TokenObtainPairSerializer, TokenRefreshSerializer, PostSerializer
+
+from django.contrib.auth import authenticate, login
 
 
 class UserViewSet(ModelViewSet):
@@ -64,19 +66,40 @@ def index(request):
     # ls = Post.NEWS_TYPES
     return render(request, 'index.html')
 
+def error(request):
+    return render(request, 'error.html')
+
 def signin(request):
-    # ls = Post.NEWS_TYPES
-    return render(request, 'signin.html')
+    if request.method == "POST":
+        
+        username = request.POST["username"]
+        password = request.POST["password"]
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('post_add')
+        else:
+        # Return an 'invalid login' error message.
+            return redirect('error')
+    else:
+        form = LoginForm()
+    
+        # Redirect to a success page.
+        
+        
+    return render(request, 'signin.html', {'form': form})
 
 def post_form(request):
 
     if request.method == "POST":
-        form = PostForm(request.POST)
+        form = PostForm(request.POST, request.FILES)
         if form.is_valid():
+            
             post = form.save(commit=False)
             post.user = request.user
             post.post_date = timezone.now()
             post.save()
+            # img_obj = form.instance
             return redirect('index')
     else:
         form = PostForm()
@@ -86,10 +109,10 @@ def post_form(request):
 #     if request.method == "POST":
 #         form = LoginForm(request.POST)
 #         if form.is_valid():
-#             post = form.save(commit=False)
-#             if Sessions.objects.get(id=User.objects.get(username=post.username).id):
-#                 Sessions.objects.get(id=User.objects.get(username=post.username).id).delete()
-#             post.date = timezone.now()
+#             # post = form.save(commit=False)
+#             # if Sessions.objects.get(id=User.objects.get(username=post.username).id):
+#             #     Sessions.objects.get(id=User.objects.get(username=post.username).id).delete()
+#             # post.date = timezone.now()
 #             # post.token =
 #             # post.save()
 #             return redirect('index')
