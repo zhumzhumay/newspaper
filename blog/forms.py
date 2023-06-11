@@ -9,4 +9,4 @@ class PostForm(forms.ModelForm):
 class LoginForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ('username', 'password', "role")
+        fields = ('username', 'password')

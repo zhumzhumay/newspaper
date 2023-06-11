@@ -77,7 +77,10 @@ def signin(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('post_add')
+            if user.role == User.ROLE_TYPES[1][0]:
+                return redirect('post_add')
+            else:
+                return redirect('index')
         else:
         # Return an 'invalid login' error message.
             return redirect('error')
