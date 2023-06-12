@@ -1,4 +1,6 @@
 {% load static %}
+{% load i18n %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,8 +53,8 @@
                 <div class="d-inline-flex align-items-center">
                     <i class="bi bi-geo-alt fs-1 text-primary me-3"></i>
                     <div class="text-start">
-                        <h6 class="text-uppercase fw-bold">Наш офис</h6>
-                        <span>123 Street, New York, USA</span>
+                        <h6 class="text-uppercase fw-bold">{% trans 'Наш офис' %}</h6>
+                        <span>{% trans '123 Street, New York, USA' %}</span>
                     </div>
                 </div>
             </div>
@@ -60,7 +62,7 @@
                 <div class="d-inline-flex align-items-center">
                     <i class="bi bi-envelope-open fs-1 text-primary me-3"></i>
                     <div class="text-start">
-                        <h6 class="text-uppercase fw-bold">Почта</h6>
+                        <h6 class="text-uppercase fw-bold">{% trans 'Почта' %}</h6>
                         <span>info@example.com</span>
                     </div>
                 </div>
@@ -69,7 +71,7 @@
                 <div class="d-inline-flex align-items-center">
                     <i class="bi bi-phone-vibrate fs-1 text-primary me-3"></i>
                     <div class="text-start">
-                        <h6 class="text-uppercase fw-bold">Телефон для связи</h6>
+                        <h6 class="text-uppercase fw-bold">{% trans 'Телефон для связи' %}</h6>
 
                         <span>+012 345 6789</span>
                     </div>
@@ -84,14 +86,14 @@
     <div class="container-fluid sticky-top bg-dark bg-light-radial shadow-sm px-5 pe-lg-0">
         <nav class="navbar navbar-expand-lg bg-dark bg-light-radial navbar-dark py-3 py-lg-0">
             <a href="{% url 'index' %}" class="navbar-brand">
-                <h1 class="m-0 display-4 text-uppercase text-white">НОВОСТИ</h1>
+                <h1 class="m-0 display-4 text-uppercase text-white">{% trans 'НОВОСТИ' %}</h1>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
-                    <a href="" class="nav-item nav-link">Авторизация (только для редакторов)</a>
+                    <a href="" class="nav-item nav-link">{% trans 'Авторизация (только для редакторов)' %}</a>
 
                     <!-- <a href="contact.html" class="nav-item nav-link">Contact</a>
                     <a href="" class="nav-item nav-link bg-primary text-white px-5 ms-3 d-none d-lg-block">Get A Quote <i class="bi bi-arrow-right"></i></a> -->
@@ -105,7 +107,7 @@
 
          <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
+        <button type="submit" class="save btn btn-default">{% trans 'Сохранить' %}</button>
 
     </form>
 

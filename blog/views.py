@@ -8,11 +8,13 @@ from rest_framework.viewsets import ModelViewSet, GenericViewSet
 from rest_framework_simplejwt.views import TokenObtainSlidingView, TokenRefreshSlidingView
 
 from blog.forms import PostForm, LoginForm
-from blog.models import User, Post, Sessions
+from blog.models import User, Post
 from blog.permissions import IsEditor, IsSuperAdmin, IsReader
 from blog.serializers import UserSerializer, TokenObtainPairSerializer, TokenRefreshSerializer, PostSerializer
 
 from django.contrib.auth import authenticate, login
+
+from django.utils.translation import gettext as _
 
 
 class UserViewSet(ModelViewSet):
@@ -32,14 +34,14 @@ class EditorView(ListAPIView):
     permission_classes = [IsEditor | IsSuperAdmin]
 
     def get(self, request, *args, **kwargs):
-        return Response(data={'success': 'You are a editor'}, status=status.HTTP_200_OK)
+        return Response(data={'success': _('You are a editor')}, status=status.HTTP_200_OK)
 
 
 class ReaderView(ListAPIView):
     permission_classes = [IsReader | IsSuperAdmin | IsEditor]
 
     def get(self, request, *args, **kwargs):
-        return Response(data={'success': 'You are a reader'}, status=status.HTTP_200_OK)
+        return Response(data={'success': _('You are a reader')}, status=status.HTTP_200_OK)
 
 
 class TokenObtainPairView(TokenObtainSlidingView):

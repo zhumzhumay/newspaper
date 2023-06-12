@@ -6,6 +6,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 
 
 from .models import User, Post
+from django.utils.translation import gettext as _
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -21,7 +22,7 @@ class TokenObtainPairSerializer(TokenObtainPairSerializer):
 
         if not self.user.is_active:
             raise AuthenticationFailed({
-                'detail': f"Пользователь {self.user.username} был деактивирован!"
+                'detail': _(f"Пользователь {self.user.username} был деактивирован!")
             }, code='user_deleted')
 
         data['id'] = self.user.id
@@ -42,12 +43,12 @@ class TokenRefreshSerializer(TokenRefreshSerializer):
             )
         except ObjectDoesNotExist:
             raise serializers.ValidationError({
-                'detail': f"Пользователь был удалён!"
+                'detail': _(f"Пользователь был удалён!")
             }, code='user_does_not_exists')
 
         if user.blocked:
             raise AuthenticationFailed({
-                'detail': f"Пользователь {user.username} был заблокирован!"
+                'detail': _(f"Пользователь {user.username} был заблокирован!")
             }, code='user_deleted')
 
         data['id'] = user.id
