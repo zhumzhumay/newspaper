@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-12 18:00+0500\n"
+"POT-Creation-Date: 2023-06-12 18:14+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,168 +16,167 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
 #: .\blog\models.py:13
 msgid "Суперпользователь"
-msgstr "Superuser"
+msgstr ""
 
 #: .\blog\models.py:14
 msgid "Новостной редактор"
-msgstr "News editor"
+msgstr ""
 
 #: .\blog\models.py:15
 msgid "Читатель"
-msgstr "Reader"
+msgstr ""
 
 #: .\blog\models.py:21
 msgid "Логин"
-msgstr "Login"
+msgstr ""
 
 #: .\blog\models.py:22
 msgid "ФИО"
-msgstr "Full name"
+msgstr ""
 
 #: .\blog\models.py:23 .\blog\templates\index.html:64
 #: .\blog\templates\post_add.html:65 .\blog\templates\signin.html:64
 msgid "Почта"
-msgstr "Email"
+msgstr ""
 
 #: .\blog\models.py:24
 msgid "Дата присоединения"
-msgstr "Date of accession"
+msgstr ""
 
 #: .\blog\models.py:28
 msgid "Статус доступа"
-msgstr "Access status"
+msgstr ""
 
 #: .\blog\models.py:30
 msgid "Роль"
-msgstr "Role"
+msgstr ""
 
 #: .\blog\models.py:42 .\blog\models.py:54
 msgid "Пользователь"
-msgstr "User"
+msgstr ""
 
 #: .\blog\models.py:43
 msgid "Пользователи"
-msgstr "Users"
+msgstr ""
 
 #: .\blog\models.py:49
 msgid "СРОЧНАЯ НОВОСТЬ"
-msgstr "URGENT NEWs"
+msgstr ""
 
 #: .\blog\models.py:50
 msgid "НОВОСТЬ ДНЯ"
-msgstr "NEWS OF THE DAY"
+msgstr ""
 
 #: .\blog\models.py:51
 msgid "ОБЫЧНАЯ"
-msgstr "REGULAR"
+msgstr ""
 
 #: .\blog\models.py:55
 msgid "Изображение"
-msgstr "Image"
+msgstr ""
 
 #: .\blog\models.py:56
 msgid "Заголовок"
-msgstr "Title"
+msgstr ""
 
 #: .\blog\models.py:57
 msgid "Текст"
-msgstr "Text"
+msgstr ""
 
 #: .\blog\models.py:58
 msgid "Автор статьи"
-msgstr "Article author"
+msgstr ""
 
 #: .\blog\models.py:59
 msgid "дата"
-msgstr "date"
+msgstr ""
 
 #: .\blog\models.py:61
 msgid "Тип новости"
-msgstr "News type"
+msgstr ""
 
 #: .\blog\models.py:65
 msgid "Новость"
-msgstr "News"
+msgstr ""
 
 #: .\blog\models.py:66
 msgid "Новости"
-msgstr "News"
+msgstr "жаналыктар"
 
 #: .\blog\serializers.py:25
 #, python-brace-format
 msgid "Пользователь {self.user.username} был деактивирован!"
-msgstr "{self.user.username} user was deactivated"
+msgstr ""
 
 #: .\blog\serializers.py:46
 msgid "Пользователь был удалён!"
-msgstr "User was deleted"
+msgstr ""
 
 #: .\blog\serializers.py:51
 #, python-brace-format
 msgid "Пользователь {user.username} был заблокирован!"
-msgstr "{user.username} user was blocked"
+msgstr ""
 
 #: .\blog\templates\error.html:56 .\blog\templates\index.html:88
 #: .\blog\templates\index.html:241 .\blog\templates\post_add.html:89
 #: .\blog\templates\signin.html:88
 msgid "НОВОСТИ"
-msgstr "NEWS"
+msgstr "жаналыктар"
 
 #: .\blog\templates\error.html:63
 msgid "Повторная авторизация"
-msgstr "Reauthorization"
+msgstr ""
 
 #: .\blog\templates\error.html:73
 msgid "Пользователя не существует,"
-msgstr "User doesn't exist"
+msgstr ""
 
 #: .\blog\templates\error.html:73
 msgid "попробуйте еще раз"
-msgstr "try again"
+msgstr ""
 
 #: .\blog\templates\index.html:55 .\blog\templates\post_add.html:56
 #: .\blog\templates\signin.html:55
 msgid "Наш офис"
-msgstr "Our office"
+msgstr ""
 
 #: .\blog\templates\index.html:56 .\blog\templates\index.html:244
 #: .\blog\templates\post_add.html:57 .\blog\templates\signin.html:56
 msgid "123 Street, New York, USA"
-msgstr "123 Street, New York, USA"
+msgstr ""
 
 #: .\blog\templates\index.html:73 .\blog\templates\post_add.html:74
 #: .\blog\templates\signin.html:73
 msgid "Телефон для связи"
-msgstr "Contact phone"
+msgstr ""
 
 #: .\blog\templates\index.html:93 .\blog\templates\post_add.html:96
 #: .\blog\templates\signin.html:95
 msgid "Авторизация (только для редакторов)"
-msgstr "Authorization (only for editors)"
+msgstr ""
 
 #: .\blog\templates\index.html:98
 msgid "Добавить пост"
-msgstr "Add a post"
+msgstr ""
 
 #: .\blog\templates\index.html:111
 msgid "Свежие новости каждый день"
-msgstr "Fresh news every day"
+msgstr ""
 
 #: .\blog\templates\index.html:120
 msgid "Обычные новости"
-msgstr "Regular news"
+msgstr ""
 
 #: .\blog\templates\index.html:123
 msgid "Срочные"
-msgstr "Urgent"
+msgstr ""
 
 #: .\blog\templates\index.html:126
 msgid "Новость дня"
-msgstr "News of the day"
+msgstr ""
 
 #: .\blog\templates\index.html:189
 msgid ""
@@ -188,36 +187,24 @@ msgid ""
 "переопределить наши переменные по умолчанию. Также стоит отметить, что "
 "практически любой HTML может быть помещен в <code>.accordion-body</code>, "
 "хотя переход ограничивает переполнение."
-msgstr "bla bla bla"
+msgstr ""
 
 #: .\blog\templates\index.html:197
 msgid "Читать"
-msgstr "Read"
+msgstr ""
 
 #: .\blog\templates\post_add.html:110
 msgid "Сохранить"
-msgstr "Save"
+msgstr ""
 
 #: .\blog\templates\signin.html:109
 msgid "ВХОД"
-msgstr "Submit"
+msgstr ""
 
 #: .\blog\views.py:37
 msgid "You are a editor"
-msgstr "You are a editor"
+msgstr ""
 
 #: .\blog\views.py:44
 msgid "You are a reader"
-msgstr "You are a reader"
-
-#~ msgid "Messages"
-#~ msgstr "Messages"
-
-#~ msgid "Site Maps"
-#~ msgstr "Site Maps"
-
-#~ msgid "Static Files"
-#~ msgstr "Static Files"
-
-#~ msgid "Syndication"
-#~ msgstr "Syndication"
+msgstr ""
