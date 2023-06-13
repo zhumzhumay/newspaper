@@ -1,4 +1,4 @@
-Django==4.1
+Django
 django-jazzmin
 django-bootstrap5
 django-filter
